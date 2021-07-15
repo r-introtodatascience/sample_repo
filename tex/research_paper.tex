@@ -1,0 +1,318 @@
+\documentclass[12pt, letterpaper, leqno]{article}
+\usepackage[bottom=3cm, top=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+% \usepackage{a4wide}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{float, afterpage, rotating, graphicx}
+\usepackage{epstopdf}
+\usepackage{longtable, booktabs, dcolumn, tabularx, threeparttable}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{fancyvrb, moreverb, relsize}
+\usepackage{eurosym, calc, chngcntr}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, bm}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{mdwlist}
+\usepackage{multirow}
+\usepackage{bbm}
+\usepackage{preview}
+\usepackage{xfrac}
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{threeparttable} % For better formatting of table notes
+\usepackage[colorlinks,%
+     citecolor=black,
+     filecolor=black,
+     linkcolor=black,
+     urlcolor=black]{hyperref} % for linking between references, figures, TOC, etc in the pdf document
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage[title]{appendix}
+\usepackage{soul}
+\DeclareRobustCommand{\hlg}[1]{{\sethlcolor{green}\hl{#1}}}
+\DeclareRobustCommand{\hlp}[1]{{\sethlcolor{pink}\hl{#1}}}
+\usepackage{float}
+\usepackage{ragged2e}
+% \usepackage{pdf14} % Enable for Manuscriptcentral -- can't handle pdf 1.5
+% \usepackage{endfloat} % Enable to move tables / figures to the end. Useful for some submissions.
+% \usepackage[
+%     natbib=true,
+%     bibencoding=inputenc,
+%     bibstyle=authoryear-ibid,
+%     citestyle=authoryear-comp,
+%     uniquename=false,
+%     maxcitenames=3,
+%     maxbibnames=10,
+%     useprefix=false,
+%     sortcites=true,
+%     %backend=biber
+% ]{biblatex}
+% \addbibresource{electricityrefs.bib}
+% \AtBeginDocument{\toggletrue{blx@useprefix}}
+% \AtBeginBibliography{\togglefalse{blx@useprefix}}
+% \setlength{\bibitemsep}{1.5ex}
+\usepackage{natbib}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,positioning, arrows.meta}
+\newcommand{\ImageWidth}{11cm}
+
+% \usepackage[unicode=true]{hyperref}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=black,
+%     anchorcolor=black,
+%     citecolor=black,
+%     filecolor=black,
+%     menucolor=black,
+%     runcolor=black,
+%     urlcolor=black
+% }
+
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength{\parskip}{1ex}
+\setlength{\parindent}{0ex}
+%\setstretch{1.5}
+
+\let\estinput=\input
+
+\newcommand{\estwide}[3]{
+   \vspace{.75ex}{
+   \textsymbols
+   \begin{tabular*}
+   {\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+   \toprule
+   \estinput{#1}
+   \bottomrule
+   \addlinespace[.75ex]
+   \end{tabular*}
+   }
+}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+% This section is to ensure that all eps graphics are converted to pdf automatically.
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+   \pdffalse
+\else
+   \pdfoutput=1
+   \pdftrue
+\fi
+\ifpdf
+   \usepackage{graphicx}
+   \usepackage{epstopdf}
+   \DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+   \pdfcompresslevel=9
+\else
+   \usepackage{graphicx}
+\fi
+
+\newcommand{\Figtext}[1]{
+\begin{tablenotes}[para,flushleft]
+#1
+\end{tablenotes}
+}
+\newcommand{\Fignote}[1]{\Figtext{\emph{Note:~}~#1}}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\begin{document}
+\title{\singlespacing Introduction to R for Economists \thanks{Special thanks to ABC, XX, and YY who provided valuable comments and discussions.}
+% subtitle:
+% \\[1ex]
+% \large Subtitle here
+}
+
+\author{
+Joseph M. Westenberg\thanks{Indiana University - Department of Economics, \href{mailto:sweiergr@iu.edu} {\nolinkurl{jwesten[at]iu[dot]edu}}}
+}
+
+\date{
+{\bf Preliminary - Please do not cite or circulate without permission } \\[1ex]
+\today}
+\clearpage\maketitle
+\thispagestyle{empty}
+\vspace{-1.5cm}
+
+\begin{abstract}
+\vspace{-0.5cm}
+{\singlespacing
+This is a sample tex document I constructed to illustrate how to read in tex files/images directly outputted from R. 
+\vspace{0.4in} \\
+\small
+{\small
+\noindent \textbf{JEL Classification}: 
+
+\noindent \textbf{Keywords}:  
+}
+}
+\end{abstract}
+\clearpage
+\setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Introduction} % (fold)
+\label{sec:introduction}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background}
+\subsection{Ground-Level Ozone}
+\label{sec:Ground-LevelOzone}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Theory and Predictions}
+\label{sec:theory_model}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Data} % (fold)
+\label{sec:data}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Empirical Analysis} % (fold)
+\label{sec:empirics}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1,>=stealth,
+	every node/.style={align=center,scale=1}]
+	% draw horizontal line
+	\draw[thick, -Triangle] (0,0) -- (15,0) node[font=\scriptsize,below left=3pt and -8pt]{};
+
+	% draw vertical lines
+	\foreach \x in {0,0.3,...,15}
+	\draw (\x cm,4pt) -- (\x cm,-4pt);
+
+	\draw (0,0) node[below=5pt] {July\\ 2005} node[above=3pt, anchor= south west, rotate=45] {};
+	\draw (3.6,0) node[below=5pt] {July\\ 2006} node[above=3pt, anchor= south west, rotate=45] {};
+	\draw (7.2,0) node[below=5pt] {July\\ 2007} node[above=3pt, anchor= south west, rotate=45] {};
+	\draw (10.8,0) node[below=5pt] {July\\ 2008} node[above=3pt, anchor= south west, rotate=45] {};
+	\draw (14.4,0) node[below=5pt] {July\\ 2009} node[above=3pt, anchor= south west, rotate=45] {};
+	\draw (4.8,0) node[below=5pt] { Nov\\ 2006} node[above=3pt, anchor= south west, rotate=45] {Election};
+	\draw (12,0) node[below=5pt] {Nov\\ 2008} node[above=3pt, anchor= south west, rotate=45] {Election};
+
+	\draw[red, line width=3pt]
+	(3.6,0.1) -- (10.8,0.1);
+	\draw [thick ,decorate,decoration={brace,amplitude=5pt}] (3.6,1.5)  -- +(7.2,0)
+	node [black,midway,above=4pt, font=\scriptsize] {Specification 1 (Main)};
+	\draw[dashed] (3.6,0) -- +(0,1.5);
+	\draw[dashed] (10.8,0) -- +(0,1.5);
+
+	\foreach \x in
+	{0,3.6,4.8,7.2,10.8,12,14.4}
+	\draw[->]
+	(\x,-0.3) -- ++(0,.8em);
+
+	\foreach \x in
+	{4.8,12}
+	\draw[<-]
+	(\x,0.05) -- ++(0,.7em);
+	\end{tikzpicture}
+	\caption{}
+	\label{ref:specification}
+\end{figure}
+
+\section{Broader Policy Implications} % (fold)
+\label{sec:policy_implications}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+
+
+%%
+%%
+\bibliographystyle{chicago}
+\bibliography{official_3rd_year_paper}
+\nocite{*} % include all references even without citing
+%\bibliographystyle{chicago}
+%%\setstretch{1}
+%% \printbibliography
+%%\setstretch{1.5}
+%%\clearpage
+% \newpage
+\begin{appendices}
+%% \renewcommand{\appendixpagename}{Appendix - For Online Publication Only}
+\appendixpage
+\appendix
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\section{Main Regressions}
+
+\section{Data Summary Tables}
+
+\newpage
+\begin{figure}[H]
+    \caption{Summary Statistics for Indiana Labor Force by Year}
+    \vspace{-6mm}
+    \input{../tables/indiana_laborforce.tex}
+	\vspace{-6mm}
+	\hspace{2mm}{\parbox[t]{0.97\textwidth}{Notes: Summary statistics are calculated across counties in Indiana within the given year.}}
+\end{figure}
+
+
+\begin{figure}[H]
+	\caption{Indiana Unemployment Rates by County}
+	\label{fig:indiana_unemp}
+	\begin{center}
+		\includegraphics*[width=0.95\textwidth]{../figures/indiana_unemp.png}
+	\end{center}
+	\centerline{\begin{minipage}{15.5cm}
+	\footnotesize
+	Notes: Plotted are unemployment rates by county for the state of Indiana. The dark black line denotes the county in which IU-Bloomington resides, Monroe County.
+	\end{minipage}}
+\end{figure}
+
+
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{rlrrrrrrrrr}
+	  \hline
+	 & Year & Min & p10th & p25th & p50th & p75th & p90th & Max & Average & StDev \\ 
+	  \hline
+	1 & 1990 & 2629.00 & 6639.30 & 9617.50 & 14858.50 & 30089.50 & 60784.50 & 424053.00 & 30593.65 & 52989.19 \\ 
+	  2 & 1991 & 2541.00 & 6380.50 & 9480.00 & 14713.00 & 30131.00 & 62309.90 & 421789.00 & 30357.00 & 52670.08 \\ 
+	  3 & 1992 & 2550.00 & 6284.20 & 9615.50 & 15169.50 & 31117.00 & 63623.20 & 429239.00 & 31058.60 & 53551.02 \\ 
+	  4 & 1993 & 2607.00 & 6200.60 & 10037.75 & 15652.50 & 32034.75 & 64549.90 & 438377.00 & 32046.84 & 54683.97 \\ 
+	  5 & 1994 & 2681.00 & 6453.10 & 10480.50 & 16472.00 & 33808.25 & 66506.30 & 453457.00 & 33308.01 & 56427.35 \\ 
+	  6 & 1995 & 2714.00 & 6543.20 & 10994.75 & 16648.50 & 34588.00 & 67364.50 & 459603.00 & 34078.00 & 57219.27 \\ 
+	  7 & 1996 & 2724.00 & 6522.60 & 10827.50 & 16551.00 & 34597.25 & 66487.50 & 453728.00 & 33800.80 & 56670.37 \\ 
+	  8 & 1997 & 2698.00 & 6585.30 & 10966.00 & 16671.50 & 34786.50 & 66195.30 & 453928.00 & 33919.72 & 56870.28 \\ 
+	  9 & 1998 & 2701.00 & 6629.70 & 11008.75 & 16660.00 & 34150.50 & 65887.60 & 452412.00 & 33947.47 & 56827.82 \\ 
+	  10 & 1999 & 2691.00 & 6496.70 & 10986.75 & 16958.50 & 33968.50 & 65196.00 & 448732.00 & 33965.91 & 56434.89 \\ 
+	  11 & 2000 & 2985.00 & 7053.50 & 10816.50 & 16984.50 & 34996.50 & 63718.60 & 455135.00 & 33982.50 & 56818.02 \\ 
+	  12 & 2001 & 2982.00 & 7085.70 & 10709.00 & 17127.50 & 34674.75 & 64832.00 & 459505.00 & 34140.32 & 57318.59 \\ 
+	  13 & 2002 & 3051.00 & 7040.70 & 10802.75 & 17244.50 & 34974.75 & 66572.30 & 462330.00 & 34469.34 & 57807.67 \\ 
+	  14 & 2003 & 3092.00 & 6941.00 & 10709.50 & 17199.00 & 34514.75 & 67751.50 & 464331.00 & 34597.76 & 58056.22 \\ 
+	  15 & 2004 & 3109.00 & 6815.20 & 10547.00 & 17083.50 & 33431.50 & 68476.20 & 459140.00 & 34432.72 & 57583.09 \\ 
+	  16 & 2005 & 3152.00 & 7075.80 & 10702.75 & 17357.50 & 33606.00 & 69985.60 & 459492.00 & 34841.75 & 57925.42 \\ 
+	  17 & 2006 & 3107.00 & 6883.10 & 10620.50 & 17326.50 & 34554.50 & 72792.00 & 461468.00 & 35164.35 & 58484.53 \\ 
+	  18 & 2007 & 3026.00 & 6816.70 & 10447.50 & 16881.00 & 34304.50 & 73128.10 & 460046.00 & 34866.21 & 58342.88 \\ 
+	  19 & 2008 & 3044.00 & 6816.20 & 10488.00 & 16673.50 & 34065.50 & 75072.00 & 463200.00 & 35131.49 & 58819.13 \\ 
+	  20 & 2009 & 3088.00 & 6758.40 & 10434.25 & 16452.00 & 33700.25 & 74434.10 & 457524.00 & 34717.45 & 58083.80 \\ 
+	  21 & 2010 & 3263.00 & 6440.50 & 10308.00 & 16622.00 & 33921.75 & 74406.00 & 452836.00 & 34512.97 & 57806.16 \\ 
+	  22 & 2011 & 3210.00 & 6459.90 & 10184.25 & 16630.50 & 33804.00 & 75620.50 & 456011.00 & 34586.91 & 58199.53 \\ 
+	  23 & 2012 & 3181.00 & 6336.20 & 10058.50 & 16453.00 & 32924.00 & 76458.00 & 458377.00 & 34454.88 & 58388.80 \\ 
+	  24 & 2013 & 3165.00 & 6325.90 & 9900.50 & 16289.50 & 33053.00 & 78149.50 & 463346.00 & 34656.59 & 58983.65 \\ 
+	  25 & 2014 & 3216.00 & 6401.20 & 9851.50 & 16524.00 & 33215.50 & 80113.30 & 467169.00 & 35052.00 & 59579.47 \\ 
+	  26 & 2015 & 3178.00 & 6341.80 & 9924.75 & 16908.00 & 33960.00 & 82327.70 & 472330.00 & 35508.30 & 60275.44 \\ 
+	  27 & 2016 & 3226.00 & 6444.80 & 9930.50 & 17093.50 & 35149.00 & 85223.00 & 481434.00 & 36178.11 & 61517.07 \\ 
+	  28 & 2017 & 3153.00 & 6512.50 & 9783.75 & 17119.00 & 35516.50 & 85487.60 & 483607.00 & 36243.96 & 61840.36 \\ 
+	  29 & 2018 & 3189.00 & 6561.90 & 9943.50 & 17334.50 & 36211.00 & 86905.80 & 488698.00 & 36756.59 & 62659.34 \\ 
+	  30 & 2019 & 3201.00 & 6615.60 & 9812.75 & 17243.00 & 36470.50 & 87146.90 & 492967.00 & 36819.25 & 63114.77 \\ 
+	   \hline
+	\end{tabular}
+	\end{table}
+	
+
+\end{appendices}
+\end{document}
