@@ -1,6 +1,6 @@
 # Rcourse
 
-This repository was created to go along with notes at <https://jmwestenberg.github.io/courses/rcourse/>. This was a 3 session workshop created to provide an introduction to R. In particular I designed these workshops around commands I have used most in data cleaning/wrangling for research.
+This repository was created by [Joseph M. Westenberg](https://github.com/jmwestenberg) to go along with notes at <https://r-introtodatascience.github.io/index.html>. This was a 5 session workshop created to provide an introduction to R. In particular I designed these workshops around commands I have used most in data cleaning/wrangling for research.
 
 ## General Structure for repository
 The overall goal for this structure is to help us organize where our inputs and outputs go. The logic for this structure was thought of through a simplification of the structure in <https://econ-project-templates.readthedocs.io/en/stable/index.html>
